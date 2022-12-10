@@ -1,0 +1,30 @@
+body {
+    font-family: "Montserrat";
+}
+
+header {
+    border-style: solid;
+    border-width: 1px 0px;
+    border-top: none;
+    border-color: black;
+}
+
+.header-menu {
+    list-style: none;
+    padding: 0px;
+    display: flex;
+    justify-content: flex-start;
+    width: 50%;
+    flex-wrap: wrap;
+}
+
+.header-menu-item {
+    flex-basis: 30%;
+}
+
+.container {
+    padding-left:5px;
+    padding-right: 5px;
+    width: 90%;
+    margin: 0 auto;
+}

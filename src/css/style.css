@@ -28,3 +28,12 @@ header {
     width: 90%;
     margin: 0 auto;
 }
+
+a {
+    font-style: none;
+    color: black;
+}
+
+a:hover {
+    text-decoration: none;
+}

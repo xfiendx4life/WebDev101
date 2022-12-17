@@ -7,6 +7,7 @@ header {
     border-width: 1px 0px;
     border-top: none;
     border-color: black;
+    margin-top: 10px;
 }
 
 .header-menu {
@@ -14,21 +15,31 @@ header {
     padding: 0px;
     display: flex;
     justify-content: flex-start;
-    width: 50%;
+    width: 100%;
     flex-wrap: wrap;
+    gap: 20px;
 }
 
-.header-menu-item {
-    flex-basis: 30%;
-}
+/* .header-menu-item {
+    flex-basis: 100%;
+} */
 
 .container {
-    padding-left:5px;
+    padding-left: 5px;
     padding-right: 5px;
     width: 90%;
     margin: 0 auto;
 }
 
+@media screen and (max-width: 500px) {
+    .header-menu {
+        flex-direction: column;
+        gap: 5px;
+        width: 50%;
+        margin: 5px auto;
+        align-items: center;
+    }
+}
 a {
     font-style: none;
     color: black;
@@ -36,4 +47,13 @@ a {
 
 a:hover {
     text-decoration: none;
+}
+
+.name-input,
+.feedback-area {
+    margin-bottom: 10px;
+}
+
+h1 {
+    margin-top: 10px;
 }

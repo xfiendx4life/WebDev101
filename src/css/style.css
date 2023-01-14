@@ -20,6 +20,18 @@ header {
     gap: 20px;
 }
 
+.feedback-block {
+    background-color: rgb(209, 243, 232);
+    margin-top: 5px;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+.name-div {
+    font-weight: bold;
+}
+
+
 /* .header-menu-item {
     flex-basis: 100%;
 } */

@@ -18,9 +18,13 @@
         <div class="container">
             <header>
                 <ul class="header-menu">
-                    <li class="header-menu-item"><a href="index.html">Main</a></li>
+                    <li class="header-menu-item">
+                        <a href="index.html">Main</a>
+                    </li>
                     <li class="header-menu-item"><a href="#">About</a></li>
-                    <li class="header-menu-item"><a href="contact.html">Contact Us</a></li>
+                    <li class="header-menu-item">
+                        <a href="contact.html">Contact Us</a>
+                    </li>
                     <li class="header-menu-item">
                         <a href="#">Meet Us at Social Networks</a>
                     </li>
@@ -28,41 +32,26 @@
                 </ul>
             </header>
             <h1>Leave your feedback</h1>
-            <form action="">
-                <input
-                    type="text"
-                    name="name"
-                    id="name-input"
-                    class="name-input form-control"
-                    placeholder="Eneter your name"
-                />
-                <textarea
-                    name="review"
-                    id="review"
-                    cols="30"
-                    rows="10"
-                    class="form-control feedback-area"
-                ></textarea>
-                <button class="btn btn-outline-primary">Send</button>
-            </form>
+            <input
+                type="text"
+                name="name"
+                id="name-input"
+                class="name-input form-control"
+                placeholder="Eneter your name"
+            />
+            <textarea
+                name="review"
+                id="review"
+                cols="30"
+                rows="10"
+                class="form-control feedback-area"
+            ></textarea>
+            <button class="btn btn-outline-primary" id="send-feedback">
+                Send
+            </button>
 
-                <input
-                    type="text"
-                    name="name"
-                    id="a"
-                    class="name-input form-control"
-                    placeholder="Enter a"
-                />
-                <input
-                    type="text"
-                    name="name"
-                    id="b"
-                    class="name-input form-control"
-                    placeholder="Enter b"
-                />
-
-                <button class="btn btn-outline-primary" id="count" onclick= count()>OK</button>
-
+            <div id="feedback" class="feedback">
+            </div>
         </div>
     </body>
 </html>

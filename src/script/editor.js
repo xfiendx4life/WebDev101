@@ -1,5 +1,8 @@
 "use strict";
 
+const hyperlink = 'hyperlink';
+const image = 'image';
+
 addEventListener("DOMContentLoaded", () => {
     const container = document.getElementsByClassName("container")[0];
     container.classList.add("editor-container");
@@ -41,20 +44,30 @@ addEventListener("DOMContentLoaded", () => {
     const aBtn = new aButton(textAria);
     tools.appendChild(aBtn.container)
 
+    const imgButton = new aButton(textAria, image);
+    tools.appendChild(imgButton.container);
+
 });
 
  /**
   * creates HyperLink button
   * @param {HTMLTextAreaElement} textarea 
+  * @param {String} type type of the button to create
   */
-function aButton(textAria) {
+function aButton(textAria, type=hyperlink) {
     this.container = document.createElement("div");
     this.container.className = "hyperlink-container";
     const button = document.createElement('button');
     button.className = 'btn btn-primary';
     button.classList.add("a-button");
     button.id = 'a-button';
-    button.innerHTML = 'Hyperlink';
+    let name = 'Hyperlink';
+    let hrefOrSrc = 'href';
+    if (type == image) {
+        name = 'Image';
+        hrefOrSrc = 'src'
+    }
+    button.innerHTML = name;
     this.container.appendChild(button);
 
     const hrefInput = document.createElement('input');
@@ -62,20 +75,31 @@ function aButton(textAria) {
     hrefInput.id = "href-input";
     hrefInput.className = 'form-control';
     hrefInput.style.display = 'none';
-    hrefInput.placeholder = "Write href attribute";
+    hrefInput.placeholder = `Write ${hrefOrSrc} attribute`;
     this.container.appendChild(hrefInput);
 
 
     hrefInput.onchange = () => {
+        let tagName = 'a';
         const href = hrefInput.value;
         const selStart = textAria.selectionStart;
         const selEnd = textAria.selectionEnd;
-        let boldSubs = `${textAria.value.substring(0, selStart)}<a href="${href}">${textAria.value.substring(selStart, selEnd)}</a>`
+        let endOfHyperlink = `${textAria.value.substring(selStart, selEnd)}</${tagName}>`
+        if (type == image) {
+            tagName = 'img'
+            endOfHyperlink = '';
+        }
+        let boldSubs = `${textAria.value.substring(0, selStart)}<${tagName} ${hrefOrSrc}="${href}">${endOfHyperlink}`
         textAria.value = boldSubs;
         hrefInput.style.display = "none";
     }
 
     button.onclick = () => {
-        hrefInput.style.display = "block";
+        if (hrefInput.style.display == 'none') {
+            hrefInput.style.display = "block";
+        } else {
+            hrefInput.style.display = "none";
+        }
+        
     }
 }

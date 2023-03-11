@@ -31,6 +31,31 @@ type httpHandler struct {
 	context context.Context
 }
 
+func (h *httpHandler) handlePut(w http.ResponseWriter, r *http.Request, qName string) {
+	v := r.URL.Query().Get("v")
+	if v == "" {
+		w.WriteHeader(http.StatusBadRequest)
+		return
+	}
+	if q, ok := h.storage.Load(qName); ok {
+		if qu, ok := q.(*queue); ok {
+			if err := qu.push(h.context, v); err != nil {
+				logError.Printf("can't add to queue %s", err)
+				w.WriteHeader(http.StatusInternalServerError)
+				return
+			}
+		}
+	} else {
+		logInfo.Printf("new queue %s", qName)
+		q := newQueue(qName)
+		logInfo.Printf("new queue %v created", q)
+		q.push(h.context, v)
+		h.storage.Store(qName, q)
+	}
+	logInfo.Printf("message %s added to queue %s", v, qName)
+	w.WriteHeader(http.StatusOK)
+}
+
 func (h *httpHandler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 	qName := strings.TrimPrefix(r.URL.Path, "/")
 	if qName == "" {
@@ -38,26 +63,15 @@ func (h *httpHandler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 	if r.Method == "PUT" {
-		v := r.URL.Query().Get("v")
-		if v == "" {
-			w.WriteHeader(http.StatusBadRequest)
-			return
+		h.handlePut(w, r, qName)
+	} else if r.Method == "GET" {
+		logInfo.Printf("Query to queue %s", qName)
+		logInfo.Printf("Storage %#v", h.storage)
+		if res, ok := h.storage.Load(qName); ok {
+			w.Write([]byte(fmt.Sprintf("Get queue %v", res)))
+			logInfo.Println(res)
 		}
-		if q, ok := h.storage.Load(qName); ok {
-			if qu, ok := q.(*queue); ok {
-				if err := qu.push(h.context, v); err != nil {
-					logError.Printf("can't add to queue %s", err)
-					w.WriteHeader(http.StatusInternalServerError)
-					return
-				}
-			}
-		}
-		logInfo.Printf("message %s added to queue %s", v, qName)
-		w.WriteHeader(http.StatusOK)
-		return
-
 	}
-	w.Write([]byte("Get " + qName))
 }
 
 func newQueue(name string) *queue {
@@ -105,7 +119,9 @@ func main() {
 	storage := sync.Map{}
 	handler := httpHandler{
 		storage: storage,
+		context: context.TODO(),
 	}
+	logInfo.Printf("starting server at %s", port)
 	http.Handle("/", &handler)
 	log.Fatal(http.ListenAndServe(fmt.Sprintf("localhost:%s", port), nil))
 }

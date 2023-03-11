@@ -56,6 +56,24 @@ func (h *httpHandler) handlePut(w http.ResponseWriter, r *http.Request, qName st
 	w.WriteHeader(http.StatusOK)
 }
 
+func (h *httpHandler) getHandler(w http.ResponseWriter, r *http.Request, qName string) {
+	logInfo.Printf("Query to queue %s", qName)
+	if res, ok := h.storage.Load(qName); ok {
+		if qu, ok := res.(*queue); ok {
+			d, err := qu.pop(h.context)
+			if err != nil {
+				logError.Printf("can't get data from queue %s", err)
+				w.Write([]byte(fmt.Sprintf("queue %s is empty", qName)))
+				return
+			}
+			w.Write([]byte(d))
+			logInfo.Printf("data from queue %s: %s", qName, d)
+			return
+		}
+	}
+	logError.Printf("can't get data from queue %s", qName)
+	w.Write([]byte(fmt.Sprintf("queue %s is empty", qName)))
+}
 func (h *httpHandler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 	qName := strings.TrimPrefix(r.URL.Path, "/")
 	if qName == "" {
@@ -65,12 +83,7 @@ func (h *httpHandler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 	if r.Method == "PUT" {
 		h.handlePut(w, r, qName)
 	} else if r.Method == "GET" {
-		logInfo.Printf("Query to queue %s", qName)
-		logInfo.Printf("Storage %#v", h.storage)
-		if res, ok := h.storage.Load(qName); ok {
-			w.Write([]byte(fmt.Sprintf("Get queue %v", res)))
-			logInfo.Println(res)
-		}
+		h.getHandler(w, r, qName)
 	}
 }
 

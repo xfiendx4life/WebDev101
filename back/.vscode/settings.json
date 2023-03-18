@@ -1,0 +1,14 @@
+{
+    "sqltools.connections": [
+        {
+            "previewLimit": 50,
+            "server": "localhost",
+            "port": 5433,
+            "driver": "PostgreSQL",
+            "name": "Web",
+            "database": "sport",
+            "username": "web101",
+            "password": "123"
+        }
+    ]
+}

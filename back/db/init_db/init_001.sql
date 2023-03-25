@@ -36,10 +36,11 @@ CREATE TABLE meetings (
 
 CREATE TABLE users_meetings (
     user_id UUID,
-    meetings_id UUID,
-    PRIMARY KEY (user_id, meetings_id),
+    meeting_id UUID,
+    user_status VARCHAR(256)[],
+    PRIMARY KEY (user_id, meeting_id),
     CONSTRAINT fk_user FOREIGN KEY(user_id) REFERENCES users(id),
-    CONSTRAINT fk_meeting FOREIGN KEY(meetings_id) REFERENCES meetings(id)
+    CONSTRAINT fk_meeting FOREIGN KEY(meeting_id) REFERENCES meetings(id)
 );
 
 CREATE TABLE users_teams (
@@ -50,3 +51,4 @@ CREATE TABLE users_teams (
     CONSTRAINT fk_user FOREIGN KEY(user_id) REFERENCES users(id),
     CONSTRAINT fk_team FOREIGN KEY(team_id) REFERENCES teams(id)
 );
+

@@ -30,10 +30,11 @@ CREATE TABLE meetings (
 );
 CREATE TABLE users_meetings (
     user_id UUID,
-    meetings_id UUID,
-    PRIMARY KEY (user_id, meetings_id),
+    meeting_id UUID,
+    user_status VARCHAR(256)[],
+    PRIMARY KEY (user_id, meeting_id),
     CONSTRAINT fk_user FOREIGN KEY(user_id) REFERENCES users(id),
-    CONSTRAINT fk_meeting FOREIGN KEY(meetings_id) REFERENCES meetings(id)
+    CONSTRAINT fk_meeting FOREIGN KEY(meeting_id) REFERENCES meetings(id)
 );
 CREATE TABLE users_teams (
     user_id UUID,
@@ -90,7 +91,7 @@ VALUES (
         ARRAY ['creator']
     );
 
-INSERT INTO users_meetings (user_id, meetings_id)
+INSERT INTO users_meetings (user_id, meeting_id)
 VALUES (
         (
             SELECT id
@@ -116,5 +117,12 @@ WHERE name = 'stadium near the house';
 
 SELECT users.name AS user, meetings.name AS meeting_name, meetings.time, places.name AS place FROM users
     INNER JOIN users_meetings ON users.id = user_id 
-    INNER JOIN meetings ON meetings_id = meetings.id
+    INNER JOIN meetings ON meeting_id = meetings.id
     INNER JOIN places ON meetings.place_id = places.id ;
+
+
+CREATE VIEW meetings_for_user AS SELECT users.name AS user, meetings.name AS meeting_name, meetings.time, places.name AS place FROM users
+    INNER JOIN users_meetings ON users.id = user_id 
+    INNER JOIN meetings ON meeting_id = meetings.id
+    INNER JOIN places ON meetings.place_id = places.id ;
+

@@ -80,8 +80,8 @@
     },
     {
       "type": "text",
-      "version": 334,
-      "versionNonce": 718437668,
+      "version": 335,
+      "versionNonce": 1962889069,
       "isDeleted": false,
       "id": "cyMAZBs96v7HgaBJwH_rR",
       "fillStyle": "hachure",
@@ -94,7 +94,7 @@
       "y": 528.6796875,
       "strokeColor": "#000000",
       "backgroundColor": "#15aabf",
-      "width": 58,
+      "width": 55.539947509765625,
       "height": 25,
       "seed": 1986284137,
       "groupIds": [
@@ -102,22 +102,23 @@
       ],
       "roundness": null,
       "boundElements": [],
-      "updated": 1679126895535,
+      "updated": 1682158758683,
       "link": null,
       "locked": false,
       "fontSize": 20,
       "fontFamily": 1,
       "text": "Users",
-      "baseline": 18,
       "textAlign": "left",
       "verticalAlign": "top",
       "containerId": null,
-      "originalText": "Users"
+      "originalText": "Users",
+      "lineHeight": 1.25,
+      "baseline": 18
     },
     {
       "type": "text",
-      "version": 299,
-      "versionNonce": 2138724124,
+      "version": 300,
+      "versionNonce": 1492216291,
       "isDeleted": false,
       "id": "fe6W_0wmbWLqboIHkWA7K",
       "fillStyle": "hachure",
@@ -130,7 +131,7 @@
       "y": 589.16015625,
       "strokeColor": "#000000",
       "backgroundColor": "#15aabf",
-      "width": 154,
+      "width": 152.65985107421875,
       "height": 100,
       "seed": 837796777,
       "groupIds": [
@@ -147,17 +148,18 @@
           "type": "arrow"
         }
       ],
-      "updated": 1679126895535,
+      "updated": 1682158758684,
       "link": null,
       "locked": false,
       "fontSize": 20,
       "fontFamily": 1,
       "text": "id uuid\nname string\npassword string\nbio TEXT",
-      "baseline": 93,
       "textAlign": "left",
       "verticalAlign": "top",
       "containerId": null,
-      "originalText": "id uuid\nname string\npassword string\nbio TEXT"
+      "originalText": "id uuid\nname string\npassword string\nbio TEXT",
+      "lineHeight": 1.25,
+      "baseline": 93
     },
     {
       "type": "rectangle",
@@ -236,8 +238,8 @@
     },
     {
       "type": "text",
-      "version": 219,
-      "versionNonce": 119484964,
+      "version": 220,
+      "versionNonce": 2023545293,
       "isDeleted": false,
       "id": "0rsYuHj9S8T8QeeKC6jFR",
       "fillStyle": "hachure",
@@ -250,7 +252,7 @@
       "y": 222.36510433432844,
       "strokeColor": "#000000",
       "backgroundColor": "transparent",
-      "width": 66,
+      "width": 63.659942626953125,
       "height": 25,
       "seed": 606077257,
       "groupIds": [
@@ -258,22 +260,23 @@
       ],
       "roundness": null,
       "boundElements": [],
-      "updated": 1679127002571,
+      "updated": 1682158758684,
       "link": null,
       "locked": false,
       "fontSize": 20,
       "fontFamily": 1,
       "text": "Places",
-      "baseline": 18,
       "textAlign": "left",
       "verticalAlign": "top",
       "containerId": null,
-      "originalText": "Places"
+      "originalText": "Places",
+      "lineHeight": 1.25,
+      "baseline": 18
     },
     {
       "type": "text",
-      "version": 304,
-      "versionNonce": 1665102364,
+      "version": 305,
+      "versionNonce": 261109123,
       "isDeleted": false,
       "id": "J-7HkRQO99Ol72qw8qGDO",
       "fillStyle": "hachure",
@@ -286,7 +289,7 @@
       "y": 279.89635433432846,
       "strokeColor": "#000000",
       "backgroundColor": "transparent",
-      "width": 216,
+      "width": 213.59982299804688,
       "height": 150,
       "seed": 191965447,
       "groupIds": [
@@ -299,17 +302,18 @@
           "type": "arrow"
         }
       ],
-      "updated": 1679127002571,
+      "updated": 1682158758685,
       "link": null,
       "locked": false,
       "fontSize": 20,
       "fontFamily": 1,
       "text": "id uuid\nname string\nlocation point\nopens TIME\ncloses TIME\nAdditional_info TEXT",
-      "baseline": 143,
       "textAlign": "left",
       "verticalAlign": "top",
       "containerId": null,
-      "originalText": "id uuid\nname string\nlocation point\nopens TIME\ncloses TIME\nAdditional_info TEXT"
+      "originalText": "id uuid\nname string\nlocation point\nopens TIME\ncloses TIME\nAdditional_info TEXT",
+      "lineHeight": 1.25,
+      "baseline": 143
     },
     {
       "type": "rectangle",
@@ -388,8 +392,8 @@
     },
     {
       "type": "text",
-      "version": 170,
-      "versionNonce": 420903836,
+      "version": 171,
+      "versionNonce": 416946221,
       "isDeleted": false,
       "id": "7xNSYcpiLemA3K3EF_8y-",
       "fillStyle": "hachure",
@@ -402,7 +406,7 @@
       "y": 549.1251444605284,
       "strokeColor": "#000000",
       "backgroundColor": "#ced4da",
-      "width": 66,
+      "width": 63.87994384765625,
       "height": 25,
       "seed": 984214759,
       "groupIds": [
@@ -410,22 +414,23 @@
       ],
       "roundness": null,
       "boundElements": [],
-      "updated": 1679128291299,
+      "updated": 1682158758685,
       "link": null,
       "locked": false,
       "fontSize": 20,
       "fontFamily": 1,
       "text": "Teams",
-      "baseline": 18,
       "textAlign": "left",
       "verticalAlign": "top",
       "containerId": null,
-      "originalText": "Teams"
+      "originalText": "Teams",
+      "lineHeight": 1.25,
+      "baseline": 18
     },
     {
       "type": "text",
-      "version": 225,
-      "versionNonce": 106273828,
+      "version": 226,
+      "versionNonce": 194284835,
       "isDeleted": false,
       "id": "I2eAkvtd9DFIIomNfWts-",
       "fillStyle": "hachure",
@@ -438,7 +443,7 @@
       "y": 605.3595194605284,
       "strokeColor": "#000000",
       "backgroundColor": "#ced4da",
-      "width": 216,
+      "width": 213.81982421875,
       "height": 100,
       "seed": 412202055,
       "groupIds": [
@@ -451,17 +456,18 @@
           "type": "arrow"
         }
       ],
-      "updated": 1679128291299,
+      "updated": 1682158758685,
       "link": null,
       "locked": false,
       "fontSize": 20,
       "fontFamily": 1,
       "text": "id uuid\nname string\nlogo string (url)\nadditional_info TEXT",
-      "baseline": 93,
       "textAlign": "left",
       "verticalAlign": "top",
       "containerId": null,
-      "originalText": "id uuid\nname string\nlogo string (url)\nadditional_info TEXT"
+      "originalText": "id uuid\nname string\nlogo string (url)\nadditional_info TEXT",
+      "lineHeight": 1.25,
+      "baseline": 93
     },
     {
       "type": "rectangle",
@@ -540,8 +546,8 @@
     },
     {
       "type": "text",
-      "version": 360,
-      "versionNonce": 1683545628,
+      "version": 361,
+      "versionNonce": 262179469,
       "isDeleted": false,
       "id": "KATzGFNymtSavV0XbNT2l",
       "fillStyle": "hachure",
@@ -554,7 +560,7 @@
       "y": 539.5616740513573,
       "strokeColor": "#000000",
       "backgroundColor": "transparent",
-      "width": 133,
+      "width": 131.15988159179688,
       "height": 25,
       "seed": 1493390345,
       "groupIds": [
@@ -562,22 +568,23 @@
       ],
       "roundness": null,
       "boundElements": [],
-      "updated": 1679129611978,
+      "updated": 1682158758685,
       "link": null,
       "locked": false,
       "fontSize": 20,
       "fontFamily": 1,
       "text": "Users_teams",
-      "baseline": 18,
       "textAlign": "left",
       "verticalAlign": "top",
       "containerId": null,
-      "originalText": "Users_teams"
+      "originalText": "Users_teams",
+      "lineHeight": 1.25,
+      "baseline": 18
     },
     {
       "type": "text",
-      "version": 409,
-      "versionNonce": 1127482660,
+      "version": 410,
+      "versionNonce": 544010435,
       "isDeleted": false,
       "id": "mdAcl6sZDmkx6qVWuM_7b",
       "fillStyle": "hachure",
@@ -590,7 +597,7 @@
       "y": 596.3976115513573,
       "strokeColor": "#000000",
       "backgroundColor": "transparent",
-      "width": 166,
+      "width": 164.5598602294922,
       "height": 100,
       "seed": 130324233,
       "groupIds": [
@@ -607,17 +614,18 @@
           "type": "arrow"
         }
       ],
-      "updated": 1679129617888,
+      "updated": 1682158758685,
       "link": null,
       "locked": false,
       "fontSize": 20,
       "fontFamily": 1,
       "text": "user_id uuid\nteam_id uuid\nstatus_id array\n",
-      "baseline": 93,
       "textAlign": "left",
       "verticalAlign": "top",
       "containerId": null,
-      "originalText": "user_id uuid\nteam_id uuid\nstatus_id array\n"
+      "originalText": "user_id uuid\nteam_id uuid\nstatus_id array\n",
+      "lineHeight": 1.25,
+      "baseline": 93
     },
     {
       "type": "arrow",
@@ -811,8 +819,8 @@
     },
     {
       "type": "text",
-      "version": 16,
-      "versionNonce": 970020004,
+      "version": 17,
+      "versionNonce": 497660141,
       "isDeleted": false,
       "id": "-2wAdRMbYtB_x9SBgn9da",
       "fillStyle": "hachure",
@@ -825,7 +833,7 @@
       "y": 177.4921875,
       "strokeColor": "#000000",
       "backgroundColor": "transparent",
-      "width": 85,
+      "width": 83.09991455078125,
       "height": 25,
       "seed": 1492419399,
       "groupIds": [
@@ -833,22 +841,23 @@
       ],
       "roundness": null,
       "boundElements": [],
-      "updated": 1679126895536,
+      "updated": 1682158758686,
       "link": null,
       "locked": false,
       "fontSize": 20,
       "fontFamily": 1,
       "text": "Meetings",
-      "baseline": 18,
       "textAlign": "left",
       "verticalAlign": "top",
       "containerId": null,
-      "originalText": "Meetings"
+      "originalText": "Meetings",
+      "lineHeight": 1.25,
+      "baseline": 18
     },
     {
       "type": "text",
-      "version": 108,
-      "versionNonce": 102152092,
+      "version": 109,
+      "versionNonce": 800579683,
       "isDeleted": false,
       "id": "sHR3mBfGQNq7g4bsy483T",
       "fillStyle": "hachure",
@@ -861,7 +870,7 @@
       "y": 227.4453125,
       "strokeColor": "#000000",
       "backgroundColor": "transparent",
-      "width": 208,
+      "width": 205.77981567382812,
       "height": 125,
       "seed": 2012161513,
       "groupIds": [
@@ -874,17 +883,18 @@
           "type": "arrow"
         }
       ],
-      "updated": 1679126895536,
+      "updated": 1682158758686,
       "link": null,
       "locked": false,
       "fontSize": 20,
       "fontFamily": 1,
       "text": "id uuid\nName string\nplace_id uuid\ntime DateTime\nadditional_info Text",
-      "baseline": 118,
       "textAlign": "left",
       "verticalAlign": "top",
       "containerId": null,
-      "originalText": "id uuid\nName string\nplace_id uuid\ntime DateTime\nadditional_info Text"
+      "originalText": "id uuid\nName string\nplace_id uuid\ntime DateTime\nadditional_info Text",
+      "lineHeight": 1.25,
+      "baseline": 118
     },
     {
       "type": "arrow",
@@ -1023,8 +1033,8 @@
     },
     {
       "type": "text",
-      "version": 195,
-      "versionNonce": 1614670211,
+      "version": 196,
+      "versionNonce": 813632333,
       "isDeleted": false,
       "id": "WntPfL1EdEkflVU8Ftm_9",
       "fillStyle": "hachure",
@@ -1037,7 +1047,7 @@
       "y": 395.704930745673,
       "strokeColor": "#000000",
       "backgroundColor": "transparent",
-      "width": 157,
+      "width": 155.15985107421875,
       "height": 25,
       "seed": 1427578788,
       "groupIds": [
@@ -1045,22 +1055,23 @@
       ],
       "roundness": null,
       "boundElements": [],
-      "updated": 1681555114549,
+      "updated": 1682158758686,
       "link": null,
       "locked": false,
       "fontSize": 20,
       "fontFamily": 1,
       "text": "Users_Meetings",
-      "baseline": 18,
       "textAlign": "left",
       "verticalAlign": "top",
       "containerId": null,
-      "originalText": "Users_Meetings"
+      "originalText": "Users_Meetings",
+      "lineHeight": 1.25,
+      "baseline": 18
     },
     {
       "type": "text",
-      "version": 203,
-      "versionNonce": 974234669,
+      "version": 204,
+      "versionNonce": 1665391619,
       "isDeleted": false,
       "id": "9bY--XZ5AGITKjA7k-Ueq",
       "fillStyle": "hachure",
@@ -1073,7 +1084,7 @@
       "y": 462.50610011187507,
       "strokeColor": "#000000",
       "backgroundColor": "transparent",
-      "width": 193,
+      "width": 190.55982971191406,
       "height": 75,
       "seed": 1083381796,
       "groupIds": [
@@ -1086,17 +1097,18 @@
           "type": "arrow"
         }
       ],
-      "updated": 1681555114549,
+      "updated": 1682158758686,
       "link": null,
       "locked": false,
       "fontSize": 20,
       "fontFamily": 1,
       "text": "user_id uuid\nmeeting_id uuid\nuser_status array",
-      "baseline": 68,
       "textAlign": "left",
       "verticalAlign": "top",
       "containerId": null,
-      "originalText": "user_id uuid\nmeeting_id uuid\nuser_status array"
+      "originalText": "user_id uuid\nmeeting_id uuid\nuser_status array",
+      "lineHeight": 1.25,
+      "baseline": 68
     },
     {
       "type": "arrow",

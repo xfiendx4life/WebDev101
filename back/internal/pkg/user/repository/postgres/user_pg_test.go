@@ -175,3 +175,30 @@ func TestUpdateErrorContext(t *testing.T) {
 	require.Error(t, err)
 	assert.ErrorIs(t, postgres.ErrClosedContext, err)
 }
+
+func TestDeleteUser(t *testing.T) {
+	userRepo := postgres.New(store)
+	user := models.User{
+		Name:     "test",
+		Password: "123",
+		BIO:      "Hello, this is the test user",
+	}
+	row := store.Pool.QueryRow(context.Background(), `INSERT INTO users (name, password, bio)
+		VALUES ($1, $2, $3) RETURNING id`, user.Name, user.Password, user.BIO)
+	row.Scan(&user.ID)
+	
+	err := userRepo.DeleteUser(context.Background(), user.ID)
+	require.NoError(t, err)
+	defer store.Pool.Exec(context.Background(), "DELETE FROM users")
+	res := store.Pool.QueryRow(context.Background(), "SELECT COUNT(id) from users WHERE id=$1", user.ID)
+	var count int
+	res.Scan(&count)
+	assert.Equal(t, 0, count)
+}
+
+func TestDeleteUserNoUser(t *testing.T) {
+	userRepo := postgres.New(store)
+	err := userRepo.DeleteUser(context.Background(), uuid.New())
+	require.NoError(t, err)
+	defer store.Pool.Exec(context.Background(), "DELETE FROM users")
+}

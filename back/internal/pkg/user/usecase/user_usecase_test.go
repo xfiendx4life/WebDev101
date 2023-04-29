@@ -26,13 +26,18 @@ func (mc *mockrepo) GetUserByID(ctx context.Context, id uuid.UUID) (models.User,
 }
 
 func (mc *mockrepo) GetUserByName(ctx context.Context, name string) (models.User, error) {
-	return testUser, mc.err
+	return models.User{
+		ID:       uuid.New(),
+		Name:     "test",
+		Password: usecase.HashPassword("test"),
+	}, mc.err
 }
 func (mc *mockrepo) UpdateUser(ctx context.Context, user *models.User) error {
 	return mc.err
 }
 
 var testUser = models.User{
+	ID:       uuid.New(),
 	Name:     "test",
 	Password: usecase.HashPassword("test"),
 }
@@ -63,7 +68,7 @@ func TestAuth(t *testing.T) {
 	uc := usecase.New(&repo)
 	res, err := uc.Authenticate(context.Background(), "test", "test")
 	require.NoError(t, err)
-	require.True(t, res)
+	require.NotEqual(t, uuid.Nil, res)
 }
 
 func TestAuthErrorDB(t *testing.T) {
@@ -71,14 +76,13 @@ func TestAuthErrorDB(t *testing.T) {
 	uc := usecase.New(&repo)
 	res, err := uc.Authenticate(context.Background(), "test", "test")
 	require.Error(t, err)
-	require.False(t, res)
+	require.Equal(t, uuid.Nil, res)
 }
 
 func TestAuthWrongPassw(t *testing.T) {
 	repo := mockrepo{}
 	uc := usecase.New(&repo)
 	res, err := uc.Authenticate(context.Background(), "test", "ne test")
-	require.NoError(t, err)
-	require.False(t, res)
+	require.Error(t, err)
+	require.Equal(t, uuid.Nil, res)
 }
-

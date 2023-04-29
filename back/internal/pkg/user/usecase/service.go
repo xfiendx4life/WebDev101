@@ -6,6 +6,7 @@ import (
 	"errors"
 	"fmt"
 
+	"github.com/google/uuid"
 	"github.com/xfiendx4life/web101/meet/internal/models"
 	"github.com/xfiendx4life/web101/meet/internal/pkg/user/repository"
 )
@@ -46,19 +47,22 @@ func (us *usecase) Register(ctx context.Context, user *models.User) error {
 	}
 }
 
-func (us *usecase) Authenticate(ctx context.Context, login, password string) (bool, error) {
+func (us *usecase) Authenticate(ctx context.Context, login, password string) (uuid.UUID, error) {
 	select {
 	case <-ctx.Done():
-		return false, ErrorContextDoneUsecase
+		return uuid.Nil, ErrorContextDoneUsecase
 	default:
 		if login == "" {
-			return false, nil
+			return uuid.Nil, nil
 		}
 		user, err := us.repo.GetUserByName(ctx, login)
 		if err != nil {
-			return false, fmt.Errorf("can't authenticate %w", err)
+			return uuid.Nil, fmt.Errorf("can't authenticate %w", err)
 		}
-		return user.Password == HashPassword(password), nil
+		if user.Password != HashPassword(password) {
+			return uuid.Nil, ErrorAuthentication
+		}
+		return user.ID, nil
 
 	}
 

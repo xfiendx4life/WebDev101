@@ -126,3 +126,4 @@ CREATE VIEW meetings_for_user AS SELECT users.name AS user, meetings.name AS mee
     INNER JOIN meetings ON meeting_id = meetings.id
     INNER JOIN places ON meetings.place_id = places.id ;
 
+SELECT * FROM users WHERE name='pacan';
